@@ -13,7 +13,8 @@ print("Добро пожаловать в числовую угадайку!")
 print('Попробуйте угадать задуманное компьютером число от 1 до 100 включительно.')
 number_of_tries = 0
 number = 0
-while number != 'stop' and number != rand_num:
+#while number != 'stop' and number != rand_num:
+while number != 'stop':
     print('Введите "stop", чтобы закончить или число от 1 до 100: ', end='')
     number = input()
     number_of_tries += 1
@@ -26,12 +27,16 @@ while number != 'stop' and number != rand_num:
         continue
     if number < rand_num:
         print('Ваше число меньше загаданного, попробуйте еще разок')
-    else:
+    elif number > rand_num:
         print('Ваше число больше загаданного, попробуйте еще разок')
+    else:
+        print()
+        print('Вы угадали, поздравляем!')
+        print('*' * number_of_tries)
+        print(f'Было сделано {number_of_tries} попыток')
+        print('-' * 20)
+        print('Если хотите закончить игру введите слово "stop", любой другой ввод перезапустит игру:', end='')
+        number = input()
 
-if number != 'stop':
-    print()
-    print('Вы угадали, поздравляем!')
-    print('*' * number_of_tries)
-    print(f'Было сделано {number_of_tries} попыток')
+
 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
