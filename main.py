@@ -11,11 +11,12 @@ def is_valid(text):
 rand_num = random.randint(1, 100)
 print("Добро пожаловать в числовую угадайку!")
 print('Попробуйте угадать задуманное компьютером число от 1 до 100 включительно.')
-
+number_of_tries = 0
 number = 0
 while number != 'stop' and number != rand_num:
     print('Введите "stop", чтобы закончить или число от 1 до 100: ', end='')
     number = input()
+    number_of_tries += 1
     if number == 'stop':
         break
     if is_valid(number):
@@ -29,5 +30,8 @@ while number != 'stop' and number != rand_num:
         print('Ваше число больше загаданного, попробуйте еще разок')
 
 if number != 'stop':
+    print()
     print('Вы угадали, поздравляем!')
+    print('*' * number_of_tries)
+    print(f'Было сделано {number_of_tries} попыток')
 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
